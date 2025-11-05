@@ -16,11 +16,48 @@
     <!-- Fonts CSS-->
     <link rel="stylesheet" href="css/heading.css">
     <link rel="stylesheet" href="css/body.css">
+
+
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+        import { logEvent } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDbIqVyipO4-UOSxMMs_yT-88SaExzNBe8",
+            authDomain: "ovelhacute-f5df9.firebaseapp.com",
+            projectId: "ovelhacute-f5df9",
+            storageBucket: "ovelhacute-f5df9.firebasestorage.app",
+            messagingSenderId: "1081331606870",
+            appId: "1:1081331606870:web:a09a71e2bc4b79aa94a2f7",
+            measurementId: "G-BPRMDWQEG4"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        
+
+        const link = document.getElementById("btn-whatsapp");
+
+        link.addEventListener("click", () => {
+            logEvent(analytics, "click_whatsapp");
+        });
+    </script>
+
+
+
 </head>
 
 <body id="page-top">
 
-    <a href="https://api.whatsapp.com/send?phone=5516993857077&text=Ol%C3%A1%2C%20estou%20no%20site%20da%20Ovelha%20Cute"
+    <a id="btn-whatsapp" href="https://api.whatsapp.com/send?phone=5516993857077&text=Ol%C3%A1%2C%20estou%20no%20site%20da%20Ovelha%20Cute"
         class="float" style="color: white; line-height: -10px;" target="_blank">
         <i class="fa-brands fa-whatsapp my-float"></i>
     </a>
